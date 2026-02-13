@@ -23,15 +23,14 @@ The project demonstrates clean code structure, input validation, logging, and pr
 trading_bot/
 │
 ├── bot/
-│   ├── api.py
-│   ├── config.py
-│   ├── validators.py
+│   ├── api.py          # Binance API interaction (signed requests)
+│   ├── config.py       # Logging configuration
+│   ├── validators.py   # Input validation
 │
-├── cli.py
+├── cli.py              # CLI entry point
 ├── requirements.txt
 ├── README.md
 └── logs/
-    ├── app.log
 
 ---
 
@@ -49,29 +48,29 @@ trading_bot/
 
 2. Create virtual environment
 
-python -m venv venv
+    python -m venv venv
 
 3. Activate virtual environment
 
-Windows:
-venv\Scripts\activate
+    Windows:
+    venv\Scripts\activate
 
 Linux/Mac:
-source venv/bin/activate
+    source venv/bin/activate
 
 4. Install dependencies
 
-pip install -r requirements.txt
+    pip install -r requirements.txt
 
 5. Create a `.env` file in project root
 
-.env
+    .env
 
 Add:
 
-API_KEY=your_api_key_here  
-API_SECRET=your_api_secret_here  
-BASE_URL=https://testnet.binancefuture.com
+    API_KEY=your_api_key_here  
+    API_SECRET=your_api_secret_here  
+    BASE_URL=https://testnet.binancefuture.com
 
 ---
 
@@ -107,7 +106,7 @@ Average Price: 64995
 
 Logs are written to:
 
-logs/app.log
+    logs/app.log
 
 Includes:
 
