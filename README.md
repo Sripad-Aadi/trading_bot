@@ -1,20 +1,31 @@
 # Binance Futures Testnet Trading Bot (Python)
 
-A simple command-line trading bot built in Python that places Market and Limit orders on Binance Futures Testnet (USDT-M).  
-The project demonstrates clean code structure, input validation, logging, and proper error handling.
+## Overview
+
+This is a command-line trading bot built in Python that places **Market** and **Limit** orders on **Binance Futures Testnet (USDT-M)**.
+
+The project demonstrates:
+
+- Structured code organization
+- Manual HMAC request signing
+- Input validation
+- Logging to file
+- Exception handling
+- Clean CLI interface
+
+All orders are placed on Binance Futures **Testnet (Demo Trading)** — no real funds are used.
 
 ---
 
 ## Features
 
-- Place MARKET and LIMIT orders
-- Supports BUY and SELL
-- Works on Binance Futures Testnet (USDT-M)
-- Command-line interface using Click
-- Input validation
-- Structured project layout
-- Logs API requests, responses, and errors to file
-- Handles API and network exceptions
+- Place MARKET orders
+- Place LIMIT orders
+- Support both BUY and SELL
+- CLI-based input using Click
+- Validation for symbol, side, order type, quantity, and price
+- Logs API requests and responses
+- Handles API and network errors
 
 ---
 
@@ -23,55 +34,66 @@ The project demonstrates clean code structure, input validation, logging, and pr
 trading_bot/
 │
 ├── bot/
-│   ├── api.py
-│   ├── config.py
-│   ├── validators.py
+│ ├── api.py # Binance API interaction (signed requests)
+│ ├── config.py # Logging configuration
+│ ├── validators.py # Input validation
 │
-├── cli.py
+├── cli.py # CLI entry point
 ├── requirements.txt
 ├── README.md
 └── logs/
-    ├── app.log
+
 
 ---
 
-## Prerequisites
+## Requirements
 
-- Python 3.8 or higher
+- Python 3.8+
 - Binance Futures Testnet account
-- API Key and Secret from Binance Futures Testnet
+- API Key and Secret (Futures permission enabled)
 
 ---
 
-## Setup Steps
+## Setup Instructions
 
-1. Clone or download the repository
+### 1. Clone or Download Repository
 
-2. Create virtual environment
+git clone <your-repo-link>
+cd trading_bot
+
+
+### 2. Create Virtual Environment
 
 python -m venv venv
 
-3. Activate virtual environment
+
+### 3. Activate Virtual Environment
 
 Windows:
 venv\Scripts\activate
 
-Linux/Mac:
+
+Mac/Linux:
 source venv/bin/activate
 
-4. Install dependencies
+
+### 4. Install Dependencies
 
 pip install -r requirements.txt
 
-5. Create a `.env` file in project root
 
-.env
+### 5. Create `.env` File
 
-Add:
+Create a file named `.env` in the project root:
 
-API_KEY=your_api_key_here  
-API_SECRET=your_api_secret_here  
+API_KEY=your_api_key_here
+API_SECRET=your_api_secret_here
 BASE_URL=https://testnet.binancefuture.com
+
+
+Make sure:
+- You are using Binance Futures Testnet
+- Futures trading permission is enabled
 
 ---
 
@@ -81,56 +103,65 @@ BASE_URL=https://testnet.binancefuture.com
 
 python cli.py --symbol BTCUSDT --side BUY --order_type MARKET --quantity 0.001
 
+
 ### Place Limit Order
 
 python cli.py --symbol BTCUSDT --side SELL --order_type LIMIT --quantity 0.001 --price 65000
 
+
 ---
 
-## Sample Output
+## Example Output
 
 Placing BUY MARKET order for 0.001 BTCUSDT
 
-ORDER PLACED SUCCESSFULLY  
-Order ID: 123456  
-Symbol: BTCUSDT  
-Side: BUY  
-Type: MARKET  
-Status: FILLED  
-Quantity: 0.001  
-Executed Qty: 0.001  
-Average Price: 64995  
+ORDER PLACED SUCCESSFULLY
+Order ID: 123456789
+Symbol: BTCUSDT
+Side: BUY
+Type: MARKET
+Status: FILLED
+Quantity: 0.001
+Executed Qty: 0.001
+Average Price: 64998
+
 
 ---
 
-## Logs
+## Logging
 
 Logs are written to:
 
 logs/app.log
 
-Includes:
 
-- Order request parameters  
-- API responses  
-- Validation errors  
-- Network errors  
+The log file contains:
+- Order request parameters
+- API responses
+- Validation errors
+- Network/API failures
 
 ---
 
 ## Assumptions
 
-- User already has a Binance Futures Testnet account
-- API keys have Futures trading permission enabled
-- Quantities and prices follow Binance lot size rules
+- User has a Binance Futures Testnet account
+- API keys are valid and have Futures trading permission enabled
+- Quantity and price respect Binance lot size rules
 - Internet connection is available
 
 ---
 
-## Notes
+## Design Notes
 
-- This project uses synchronous REST API calls
-- Orders are placed only on testnet (no real funds)
-- Intended for educational and evaluation purposes
+- Synchronous REST implementation
+- Manual request signing using HMAC SHA256
+- Time synchronization with Binance server
+- Modular code structure (API layer separated from CLI layer)
+- Built for evaluation and learning purposes
 
 ---
+
+## Author
+
+Python Developer Internship Assignment Submission
