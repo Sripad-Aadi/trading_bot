@@ -154,7 +154,3 @@ The log file contains:
 - Built for evaluation and learning purposes
 
 ---
-
-## Author
-
-Python Developer Internship Assignment Submission
