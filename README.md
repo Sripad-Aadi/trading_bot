@@ -31,6 +31,7 @@ All orders are placed on Binance Futures **Testnet (Demo Trading)** — no real 
 
 ## Project Structure
 
+```
 trading_bot/
 │
 ├── bot/
@@ -42,8 +43,7 @@ trading_bot/
 ├── requirements.txt
 ├── README.md
 └── logs/
-
----
+```
 
 ## Requirements
 
@@ -57,8 +57,8 @@ trading_bot/
 
 ### 1. Clone or Download Repository
 
-git clone <your-repo-link>
-cd trading_bot
+    git clone <your-repo-link>
+    cd trading_bot
 
 
 ### 2. Create Virtual Environment
@@ -68,7 +68,7 @@ cd trading_bot
 
 ### 3. Activate Virtual Environment
 
-    Windows:
+Windows:
     venv\Scripts\activate
 
 Linux/Mac:
@@ -78,9 +78,6 @@ Linux/Mac:
 ### 4. Install Dependencies
 
     pip install -r requirements.txt
-
-
-    .env
 
 Create a file named `.env` in the project root:
 
@@ -94,32 +91,31 @@ Create a file named `.env` in the project root:
 
 ### Place Market Order
 
-python cli.py --symbol BTCUSDT --side BUY --order_type MARKET --quantity 0.001
+    python cli.py --symbol BTCUSDT --side BUY --order_type MARKET --quantity 0.001
 
 
 ### Place Limit Order
 
-python cli.py --symbol BTCUSDT --side SELL --order_type LIMIT --quantity 0.001 --price 65000
+    python cli.py --symbol BTCUSDT --side SELL --order_type LIMIT --quantity 0.001 --price 65000
 
 
 ---
 
 ## Example Output
 
+```
 Placing BUY MARKET order for 0.001 BTCUSDT
 
 ORDER PLACED SUCCESSFULLY
-Order ID: 123456789
-Symbol: BTCUSDT
-Side: BUY
-Type: MARKET
-Status: FILLED
-Quantity: 0.001
-Executed Qty: 0.001
-Average Price: 64998
-
-
----
+Order ID:        123456789
+Symbol:          BTCUSDT
+Side:            BUY
+Type:            MARKET
+Status:          FILLED
+Quantity:        0.001
+Executed Qty:    0.001
+Average Price:   64998
+```
 
 ## Logging
 
